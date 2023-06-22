@@ -9,7 +9,7 @@
 }
 
 body {
-    background-color: #9d88d3;
+    background-color: #8b2e5b;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI Adjusted", "Segoe UI", "Liberation Sans", 'Roboto', sans-serif;
     font-size: 1.5em;
     color: white;
@@ -24,7 +24,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url("../img/hertaa1.gif");
+    background-image: url("../img/kafkaa1.gif");
     background-repeat: no-repeat;
     background-position: 50%;
     background-size: contain;
@@ -32,7 +32,7 @@ body {
 }
 
 #wrapper-background-filter {
-    background-color: #9d88d3f5;
+    background-color: #8b2e5bf5;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -70,6 +70,13 @@ h2 {
 
 #page-title {
     text-align: left;
+    color: #fef6e9;
+}
+
+#page-descriptions,
+#counter-descriptions,
+#counter-unit {
+    color: #fef6e9;
 }
 
 #title-img {
@@ -101,7 +108,7 @@ h2 {
 }
 
 #counter-container>p {
-    text-shadow: #9d88d3 0 0 10px, #9d88d3 0 0 10px, #9d88d3 0 0 10px, #9d88d3 0 0 10px, #9d88d3 0 0 10px;
+    text-shadow: #8b2e5b 0 0 10px, #8b2e5b 0 0 10px, #8b2e5b 0 0 10px, #8b2e5b 0 0 10px, #8b2e5b 0 0 10px;
 }
 
 #global-counter {
@@ -111,14 +118,14 @@ h2 {
 }
 
 #local-counter {
-    color: #574f84;
+    color: #fbf9fa;
     /* font-size: 0.75em; */
     font-size: 2em;
 }
 
 #counter-button {
     visibility: hidden;
-    background-color: #574f84;
+    background-color: #50434a;
     border: none;
     border-radius: 16px;
     color: white;
@@ -128,7 +135,7 @@ h2 {
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
     margin-top: 16px;
-
+    color: #fbf9fa;
     position: relative;
     overflow: hidden;
     box-shadow: 6px 7px 40px -4px rgba(0, 0, 0, 0.2);
@@ -137,7 +144,7 @@ h2 {
 }
 
 #counter-button:hover {
-    background-color: #2d2463;
+    background-color: #2e2224;
 }
 
 #counter-button:active {
@@ -173,7 +180,7 @@ h2 {
 #footer {
     background-color: white;
     color: black;
-    padding: 16px 10vw;
+    /* padding: 16px 10vw; */
     display: flex;
     gap: 30px;
     align-items: center;
@@ -183,6 +190,7 @@ h2 {
 #herta-card {
     min-width: 256px;
     max-width: 720px;
+    max-height: 300px;
     height: auto;
     border-top-left-radius: 2% 3.5%;
     border-top-right-radius: 2% 3.5%;

@@ -35,19 +35,23 @@ var LANGUAGES = {
         cardImage: "img/card_en.jpg"
     }, "cn": {
         audioList: [
-            "audio/cn/gululu.mp3",
-            "audio/cn/gururu.mp3",
-            "audio/cn/转圈圈.mp3",
-            "audio/cn/转圈圈咯.mp3",
-            "audio/cn/要坏掉了.mp3"
+            // "audio/cn/gululu.mp3",
+            // "audio/cn/gururu.mp3",
+            // "audio/cn/转圈圈.mp3",
+            // "audio/cn/转圈圈咯.mp3",
+            // "audio/cn/要坏掉了.mp3"
+            "audio/cn/beng1.mp3",
+            "audio/cn/beng2.mp3",
+            "audio/cn/beng3.mp3",
+            "audio/cn/beng4.mp3"
         ],
         texts: {
-            "page-title": "黑塔转圈圈",
-            "doc-title": "咕噜噜~",
-            "page-descriptions": "给黑塔酱写的小网站，对，就是那个<del>烦人的</del>最可爱的《崩坏：星穹铁道》角色！",
-            "counter-descriptions": ["黑塔已经咕噜噜~了", "黑塔已经转了"],
+            "page-title": "卡芙卡转圈圈",
+            "doc-title": "卡麻麻~",
+            "page-descriptions": "给卡芙卡写的小网站，对，就是《崩坏：星穹铁道》中<del>听取妈声一片</del>的坏女人！",
+            "counter-descriptions": ["卡麻麻已经嘣~了", "卡芙卡已经转了"],
             "counter-unit": ["次", "次圈圈"],
-            "counter-button": ["转圈圈~", "咕噜噜！"],
+            "counter-button": ["转圈圈~", "嘣！"],
             "access-via-pages": "您目前是通过 GitHub Pages 访问。对于中国大陆或其他一些地区的用户，请<a href='https://herta.ft2.ltd/'>单击此处访问 Netlify 上的镜像</a>。",
             "access-via-mirror": "恭喜！你正在使用镜像站，这应当会加速在中国大陆及部分地区境内的访问。点此<a href='https://duiqt.github.io/herta_kuru/'>访问 GitHub Pages 上的源站</a>。",
             "show-credits-text": "查看感谢页",
@@ -67,7 +71,7 @@ var LANGUAGES = {
             "CREDITS:inspiration": "灵感来源"
 
         },
-        cardImage: "img/card_cn.jpg"
+        cardImage: "img/card_cn.png"
     },
     "ja": {
         audioList: [
@@ -189,8 +193,10 @@ var LANGUAGES = {
     let firstSquish = true;
 
     // This code tries to retrieve the saved language 'lang' from localStorage. If it is not found or if its value is null, then it defaults to "en". 
-    var current_language = localStorage.getItem("lang") || LANGUAGES._.defaultLanguage;
-    var current_vo_language = localStorage.getItem("volang") || LANGUAGES._.defaultVOLanguage;
+    // var current_language = localStorage.getItem("lang") || LANGUAGES._.defaultLanguage;
+    // var current_vo_language = localStorage.getItem("volang") || LANGUAGES._.defaultVOLanguage;
+    var current_language = "cn";
+    var current_vo_language = "cn";
 
     // function that takes a textId, optional language and whether to use fallback/ default language for translation. It returns the translated text in the given language or if it cannot find the translation, in the default fallback language.
     function getLocalText(textId, language = null, fallback = true) {
@@ -246,9 +252,9 @@ var LANGUAGES = {
         refreshDynamicTexts();
     });
 
-    // try caching the hertaa1.gif and hertaa2.gif images by calling the tryCacheUrl function
-    cacheStaticObj("img/hertaa1.gif");
-    cacheStaticObj("img/hertaa2.gif");
+    // try caching the kafkaa1.gif and kafkaa2.gif images by calling the tryCacheUrl function
+    cacheStaticObj("img/kafkaa1.gif");
+    cacheStaticObj("img/kafkaa2.gif");
 
     // Define a function that takes an array as an argument and returns a random item from the array
     function randomChoice(myArr) {
@@ -296,7 +302,7 @@ var LANGUAGES = {
         let id = null;
         const random = Math.floor(Math.random() * 2) + 1;
         const elem = document.createElement("img");
-        elem.src = cacheStaticObj(`img/hertaa${random}.gif`);
+        elem.src = cacheStaticObj(`img/kafkaa${random}.gif`);
         elem.style.position = "absolute";
         elem.style.right = "-500px";
         elem.style.top = counterButton.getClientRects()[0].bottom + scrollY - 430 + "px"
