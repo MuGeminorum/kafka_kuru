@@ -47,7 +47,7 @@ var LANGUAGES = {
         ],
         texts: {
             "page-title": "卡芙卡转圈圈",
-            "doc-title": "卡麻麻~",
+            "doc-title": "嘣~",
             "page-descriptions": "给卡芙卡写的小网站，对，就是《崩坏：星穹铁道》中<del>听取妈声一片</del>的坏女人！",
             "counter-descriptions": ["卡麻麻已经嘣~了", "卡芙卡已经转了"],
             "counter-unit": ["次", "次圈圈"],
