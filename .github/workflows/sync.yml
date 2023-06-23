@@ -24,7 +24,7 @@ jobs:
         id: sync
         uses: aormsby/Fork-Sync-With-Upstream-action@v3.4
         with:
-          upstream_sync_repo: duiqt/herta_kuru
+          upstream_sync_repo: george-chou/kafka_kuru
           upstream_sync_branch: main
           target_sync_branch: main
           target_repo_token: ${{ secrets.GITHUB_TOKEN }} # automatically generated, no need to set
@@ -39,8 +39,8 @@ jobs:
           exit 1
           jobs:
           
-      - name: Trigger build on Netlify
-        id: getRequest
-        uses: skgandikota/FetchUrl@v1.3
-        with:
-          url: ${{ secrets.NETLIFY_TRIGGER_URL }}
+      # - name: Trigger build on Netlify
+      #   id: getRequest
+      #   uses: skgandikota/FetchUrl@v1.3
+      #   with:
+      #     url: ${{ secrets.NETLIFY_TRIGGER_URL }}
