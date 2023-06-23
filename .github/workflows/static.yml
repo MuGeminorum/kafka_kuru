@@ -36,10 +36,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          token: ${{ secrets.DEPLOY }}
-          path: './kafka_kuru'
-          branch: main
-          repository-name: george-chou/george-chou.github.io
+          path: '.'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
