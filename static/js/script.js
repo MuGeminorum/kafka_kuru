@@ -40,10 +40,10 @@ var LANGUAGES = {
             // "audio/cn/转圈圈.mp3",
             // "audio/cn/转圈圈咯.mp3",
             // "audio/cn/要坏掉了.mp3"
-            "audio/cn/beng1.mp3",
-            "audio/cn/beng2.mp3",
-            "audio/cn/beng3.mp3",
-            "audio/cn/beng4.mp3"
+            "audio/cn/beng_cn.mp3",
+            "audio/cn/beng_jp.mp3",
+            "audio/cn/beng_kr.mp3",
+            "audio/cn/beng_en.mp3"
         ],
         texts: {
             "page-title": "卡芙卡转圈圈",
