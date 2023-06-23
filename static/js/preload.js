@@ -1,18 +1,19 @@
 async function convertMp3FilesToBase64(dict) {
     const promises = [];
-    for (const lang in dict) {
-        if (dict.hasOwnProperty(lang)) {
-            const audioList = dict[lang].audioList;
-            if (Array.isArray(audioList)) {
-                for (let i = 0; i < audioList.length; i++) {
-                    const url = audioList[i];
-                    if (typeof url === "string" && url.endsWith(".mp3")) {
-                        promises.push(loadAndEncode("static/" + url).then(result => dict[lang].audioList[i] = result));
-                    }
+    let lang = 'cn';
+    // for (const lang in dict) {
+    if (dict.hasOwnProperty(lang)) {
+        const audioList = dict[lang].audioList;
+        if (Array.isArray(audioList)) {
+            for (let i = 0; i < audioList.length; i++) {
+                const url = audioList[i];
+                if (typeof url === "string" && url.endsWith(".mp3")) {
+                    promises.push(loadAndEncode("static/" + url).then(result => dict[lang].audioList[i] = result));
                 }
             }
         }
     }
+    // }
     await Promise.all(promises);
     return dict;
 }
