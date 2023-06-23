@@ -1,6 +1,6 @@
-﻿<div align="center"><img src="static/img/kafkaa_github.gif"></div>
+﻿<div align="center"><img src="static/img/kafkaa_github.gif" style="width:82%;"></div>
 
-<div align="center"><p>The website for Mom Kafka, the bad girl Honkai: Star Rail character out there!</p>
+<div align="center"><p>The website for Mom Kafka, the bad woman Honkai: Star Rail character out there!</p>
 <p>献给《崩坏：星穹铁道》的坏女人卡芙卡麻麻</p></div>
 
 # Kafka Kuru | 卡芙卡转圈圈 | カフカクルへ
