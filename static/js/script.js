@@ -48,7 +48,7 @@ var LANGUAGES = {
         texts: {
             "page-title": "卡芙卡转圈圈",
             "doc-title": "嘣~",
-            "page-descriptions": "给卡芙卡写的小网站，对，就是《崩坏：星穹铁道》中<del>听取妈声一片</del>的坏女人！",
+            "page-descriptions": "给卡芙卡写的小网站，对，就是《崩坏：星穹铁道》星核猎手中<del>听取妈声一片</del>的坏女人！",
             "counter-descriptions": ["卡麻麻已经嘣~了", "卡芙卡已经转了"],
             "counter-unit": ["次", "次圈圈"],
             "counter-button": ["转圈圈~", "嘣！"],
@@ -248,7 +248,7 @@ var LANGUAGES = {
         localCounter.textContent = localCount.toLocaleString('en-US');
         triggerRipple(e);
         playKuru();
-        animateHerta();
+        animateKafka();
         refreshDynamicTexts();
     });
 
@@ -298,7 +298,7 @@ var LANGUAGES = {
         });
     }
 
-    function animateHerta() {
+    function animateKafka() {
         let id = null;
         const random = Math.floor(Math.random() * 2) + 1;
         const elem = document.createElement("img");
