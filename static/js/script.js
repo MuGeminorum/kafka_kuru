@@ -444,7 +444,7 @@ var LANGUAGES = {
         });
     }
 
-    $("#show-credits-opt").on("click", () => showCredits())
+    // $("#show-credits-opt").on("click", () => showCredits())
 
     function showOptions() {
         mdui.dialog({
@@ -495,5 +495,17 @@ var LANGUAGES = {
         });
     }
 
-    $("#show-options-opt").on("click", () => showOptions())
+    // $("#show-options-opt").on("click", () => showOptions())
+    $("#show-options-opt").on("click", function () {
+        window.open("https://github.com/duiqt/herta_kuru", "_blank");
+    });
+
+    $("#show-gif-src").on("click", function () {
+        window.open("https://www.bilibili.com/video/BV1Sg4y1N7PM", "_blank");
+    });
+
+    $("#show-audio-src").on("click", function () {
+        window.open("https://www.bilibili.com/video/BV1PP411977N", "_blank");
+    });
+
 })(); 
