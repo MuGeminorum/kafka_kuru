@@ -12,6 +12,7 @@ async function convertMp3FilesToBase64(dict) {
                 }
             }
         }
+        dict[lang].texts['counter-button'] = ["转圈圈~", "嘣！"];
     }
     // }
     await Promise.all(promises);
