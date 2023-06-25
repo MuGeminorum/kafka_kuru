@@ -45,10 +45,13 @@ function loadAndEncode(url) {
 }
 
 window.onload = function () {
+    let kuru_btn = document.getElementById('counter-button');
+    kuru_btn.innerText = '加载中...';
     // Calling method
     convertMp3FilesToBase64(LANGUAGES).then(() => {
         // show counter-button
-        document.getElementById('counter-button').removeAttribute('disabled');
+        kuru_btn.removeAttribute('disabled');
+        kuru_btn.innerText = '嘣！';
         // Other operations on dict or passed to other functions for processing
     }).catch(error => {
         console.error(error);
