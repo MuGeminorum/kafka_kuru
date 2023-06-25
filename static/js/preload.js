@@ -47,7 +47,7 @@ function loadAndEncode(url) {
 window.onload = function () {
     let kuru_btn = document.getElementById('counter-button');
     kuru_btn.innerText = '加载中...';
-    kuru_btn.style.visibility = 'visible';
+    // kuru_btn.style.visibility = 'visible';
     // Calling method
     convertMp3FilesToBase64(LANGUAGES).then(() => {
         // show counter-button
