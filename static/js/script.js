@@ -502,7 +502,7 @@ var LANGUAGES = {
     });
 
     $("#show-gif-src").on("click", function () {
-        window.open("https://www.bilibili.com/video/BV1Sg4y1N7PM", "_blank");
+        window.open("https://www.bilibili.com/video/BV1Fh4y197cX", "_blank");
     });
 
     $("#show-audio-src").on("click", function () {
