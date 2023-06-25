@@ -48,7 +48,7 @@ window.onload = function () {
     // Calling method
     convertMp3FilesToBase64(LANGUAGES).then(() => {
         // show counter-button
-        document.getElementById('counter-button').style.visibility = 'visible';
+        document.getElementById('counter-button').removeAttribute('disabled');
         // Other operations on dict or passed to other functions for processing
     }).catch(error => {
         console.error(error);
