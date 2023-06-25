@@ -33,7 +33,8 @@ var LANGUAGES = {
             "CREDITS:inspiration": "Inspiration"
         },
         cardImage: "img/card_en.jpg"
-    }, "cn": {
+    },
+    "cn": {
         audioList: [
             // "audio/cn/gululu.mp3",
             // "audio/cn/gururu.mp3",
@@ -51,7 +52,7 @@ var LANGUAGES = {
             "page-descriptions": "给卡芙卡写的小网站，对，就是《崩坏：星穹铁道》星核猎手中<del>听取妈声一片</del>的坏女人！",
             "counter-descriptions": ["卡麻麻已经嘣~了", "卡芙卡已经转了"],
             "counter-unit": ["次", "次圈圈"],
-            "counter-button": ["转圈圈~", "嘣！"],
+            "counter-button": ["加载中...", "加载中..."],
             "access-via-pages": "您目前是通过 GitHub Pages 访问。对于中国大陆或其他一些地区的用户，请<a href='https://herta.ft2.ltd/'>单击此处访问 Netlify 上的镜像</a>。",
             "access-via-mirror": "恭喜！你正在使用镜像站，这应当会加速在中国大陆及部分地区境内的访问。点此<a href='https://duiqt.github.io/herta_kuru/'>访问 GitHub Pages 上的源站</a>。",
             "show-credits-text": "查看感谢页",
@@ -168,7 +169,7 @@ var LANGUAGES = {
     const $ = mdui.$;
 
     // initialize cachedObjects variable to store cached object URLs
-    var cachedObjects = {};
+    let cachedObjects = {};
 
     // function to try caching an object URL and return it if present in cache or else fetch it and cache it
     function cacheStaticObj(origUrl) {
@@ -193,10 +194,10 @@ var LANGUAGES = {
     let firstSquish = true;
 
     // This code tries to retrieve the saved language 'lang' from localStorage. If it is not found or if its value is null, then it defaults to "en". 
-    // var current_language = localStorage.getItem("lang") || LANGUAGES._.defaultLanguage;
-    // var current_vo_language = localStorage.getItem("volang") || LANGUAGES._.defaultVOLanguage;
-    var current_language = "cn";
-    var current_vo_language = "cn";
+    // let current_language = localStorage.getItem("lang") || LANGUAGES._.defaultLanguage;
+    // let current_vo_language = localStorage.getItem("volang") || LANGUAGES._.defaultVOLanguage;
+    let current_language = "cn";
+    let current_vo_language = "cn";
 
     // function that takes a textId, optional language and whether to use fallback/ default language for translation. It returns the translated text in the given language or if it cannot find the translation, in the default fallback language.
     function getLocalText(textId, language = null, fallback = true) {
@@ -223,11 +224,11 @@ var LANGUAGES = {
                 if (document.getElementById(textId) != undefined)
                     document.getElementById(textId).innerHTML = value; // replaces the innerHTML of the element with the given textId with its translated version.
         });
-        refreshDynamicTexts()
+        refreshDynamicTexts();
         document.getElementById("herta-card").src = "static/" + curLang.cardImage; // sets the image of element with id "herta-card" to the translated version in the selected language.
     };
 
-    multiLangMutation() // the function multiLangMutation is called initially when the page loads.
+    multiLangMutation(); // the function multiLangMutation is called initially when the page loads.
 
     // function that returns the list of audio files for the selected language
     function getLocalAudioList() {
@@ -273,7 +274,7 @@ var LANGUAGES = {
     }
 
     function getRandomAudioUrl() {
-        var localAudioList = getLocalAudioList();
+        let localAudioList = getLocalAudioList();
         if (current_vo_language == "ja") {
             const randomIndex = Math.floor(Math.random() * 2) + 1;
             return localAudioList[randomIndex];
@@ -379,18 +380,18 @@ var LANGUAGES = {
     // This function fetches data stored in a JSON file and displays it in a dialog box.
     function showCredits() {
         fetch("static/credits/list.json").then(response => response.json()).then((data) => {
-            var contributors = data.contributors;
+            let contributors = data.contributors;
             contributors = randomShuffle(contributors);
-            var creditsHtmlContent = `<p>in no specific order</p>`;
+            let creditsHtmlContent = `<p>in no specific order</p>`;
             creditsHtmlContent += `<ul class="mdui-list">`;
             for (let i = 0; i < contributors.length; i++) {
-                var current = contributors[i];
+                let current = contributors[i];
                 let renderedName = current.username;
                 if (current.name != undefined) {
                     renderedName += " (" + current.name + ")";
                 }
-                var socialMediaIcons = bilibiliIcon('#999999');
-                var socialLink = "";
+                let socialMediaIcons = bilibiliIcon('#999999');
+                let socialLink = "";
                 $.each(current.socialmedia, (key, value) => {
                     switch (key) {
                         case "bilibili":
