@@ -11,7 +11,7 @@ Please wait for a while until the kuru button appears.
 # Kafka Kuru | 卡芙卡转圈圈 | カフカクルへ
 [Home Page | 主页 | ホーム ページ](https://george-chou.github.io/kafka_kuru)
 
-Kafka GIF modified from | 卡芙卡 GIF 来源 : [BV1Sg4y1N7PM](https://www.bilibili.com/video/BV1Sg4y1N7PM) 
+Kafka GIF modified from | 卡芙卡 GIF 来源 : [BV1Fh4y197cX](https://www.bilibili.com/video/BV1Fh4y197cX) 
 
 The art the relevant copyright of Honkai: Star Rail belongs to miHoYo/HoYoverse.
 
