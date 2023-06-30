@@ -36,11 +36,6 @@ var LANGUAGES = {
     },
     "cn": {
         audioList: [
-            // "audio/cn/gululu.mp3",
-            // "audio/cn/gururu.mp3",
-            // "audio/cn/转圈圈.mp3",
-            // "audio/cn/转圈圈咯.mp3",
-            // "audio/cn/要坏掉了.mp3"
             "audio/cn/beng_cn.mp3",
             "audio/cn/beng_jp.mp3",
             "audio/cn/beng_kr.mp3",
@@ -52,7 +47,7 @@ var LANGUAGES = {
             "page-descriptions": "给卡芙卡写的小网站，对，就是《崩坏：星穹铁道》星核猎手中<del>听取妈声一片</del>的坏女人！",
             "counter-descriptions": ["卡麻麻已经嘣~了", "卡芙卡已经转了"],
             "counter-unit": ["次", "次圈圈"],
-            "counter-button": ["加载中...", "请稍后..."],
+            "counter-button": ["加载中...", "请稍候..."],
             "access-via-pages": "您目前是通过 GitHub Pages 访问。对于中国大陆或其他一些地区的用户，请<a href='https://herta.ft2.ltd/'>单击此处访问 Netlify 上的镜像</a>。",
             "access-via-mirror": "恭喜！你正在使用镜像站，这应当会加速在中国大陆及部分地区境内的访问。点此<a href='https://duiqt.github.io/herta_kuru/'>访问 GitHub Pages 上的源站</a>。",
             "show-credits-text": "查看感谢页",
@@ -247,6 +242,7 @@ var LANGUAGES = {
     counterButton.addEventListener('click', (e) => {
         localCount++;
         localCounter.textContent = localCount.toLocaleString('en-US');
+        localStorage.setItem('count-v2', localCount);
         triggerRipple(e);
         playKuru();
         animateKafka();
