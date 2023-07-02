@@ -9,7 +9,7 @@ Please wait for a while until the kuru button is ready.
 [![Deploy static content to Pages](https://github.com/george-chou/kafka_kuru/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/george-chou/kafka_kuru/actions/workflows/deploy.yml)
 
 # Kafka Kuru | 卡芙卡转圈圈 | カフカクルへ
-[Home Page | 主页 | ホーム ページ](https://george-chou.github.io/kafka_kuru)
+[Home Page | 主页 | ホーム ページ (Cloudflare)](https://kafka-kuru.pages.dev)
 
 Kafka GIF modified from | 卡芙卡 GIF 来源 : [BV1Fh4y197cX](https://www.bilibili.com/video/BV1Fh4y197cX) 
 
