@@ -14,23 +14,7 @@ let LANGUAGES = {
             "counter-descriptions": ["卡麻麻已经嘣~了", "卡芙卡已经转了"],
             "counter-unit": ["次", "次圈圈"],
             "counter-button": ["加载中...", "请稍候..."],
-            // "access-via-pages": "您目前是通过 GitHub Pages 访问。对于中国大陆或其他一些地区的用户，请<a href='https://herta.ft2.ltd/'>单击此处访问 Netlify 上的镜像</a>。",
-            // "access-via-mirror": "恭喜！你正在使用镜像站，这应当会加速在中国大陆及部分地区境内的访问。点此<a href='https://duiqt.github.io/herta_kuru/'>访问 GitHub Pages 上的源站</a>。",
-            // "show-credits-text": "查看感谢页",
-            "repository-desc": "GitHub 仓库",
-            // "options-txt-vo-lang": "语音语言",
-            // "options-txt-lang": "界面语言",
-            // "dialogs-close": "关闭",
-            // "dialogs-credits-title": "制作人员名单",
-            // "CREDITS:main-dev": "主要开发者",
-            // "CREDITS:code-contributor": "代码贡献者",
-            // "CREDITS:artist": "艺术家",
-            // "CREDITS:localization": "本地化贡献者",
-            // "CREDITS:localization:Korean": "韩国本地化贡献者",
-            // "CREDITS:localization:Japanese": "日本本地化贡献者",
-            // "CREDITS:localization:Indonesian": "印度尼西亚本地化贡献者",
-            // "CREDITS:inspiration": "灵感来源"
-
+            "repository-desc": "GitHub 仓库"
         },
         cardImage: "img/card_cn.png"
     }
@@ -170,7 +154,7 @@ let LANGUAGES = {
 
     function animateKafka() {
         let id = null;
-        const random = Math.floor(Math.random() * 2) + 1;
+        const random = 1; //Math.floor(Math.random() * 2) + 1;
         const elem = document.createElement("img");
         elem.src = cacheStaticObj(`img/kafkaa${random}.gif`);
         elem.style.position = "absolute";
@@ -279,4 +263,4 @@ let LANGUAGES = {
         });
     }
 
-})(); 
+})();
