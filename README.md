@@ -1,5 +1,5 @@
 ﻿## Warning
-Please wait for a while until the kuru button appears.
+Please wait for a while until the kuru button is ready.
 
 <div align="center"><img src="static/img/kafkaa_github.gif" style="width:82%;"></div>
 
