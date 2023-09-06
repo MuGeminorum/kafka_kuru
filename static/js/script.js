@@ -155,7 +155,7 @@ let LANGUAGES = {
 
     function animateKafka() {
         let id = null;
-        const random = 1; //Math.floor(Math.random() * 2) + 1;
+        const random = Math.floor(Math.random() * 2) + 1;
         const elem = document.createElement("img");
         elem.src = cacheStaticObj(`img/kafkaa${random}.gif`);
         elem.style.position = "absolute";
