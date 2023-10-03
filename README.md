@@ -6,7 +6,7 @@ Please wait for a while until the kuru button is ready.
 <div align="center"><p>The website for Mom Kafka, the bad woman Honkai: Star Rail character out there!</p>
 <p>献给《崩坏：星穹铁道》的坏女人卡芙卡麻麻</p></div>
 
-[![Deploy static content to Pages](https://github.com/george-chou/kafka_kuru/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/george-chou/kafka_kuru/actions/workflows/deploy.yml)
+[![Deploy static content to Pages](https://github.com/MuGeminorum/kafka_kuru/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/MuGeminorum/kafka_kuru/actions/workflows/deploy.yml)
 
 # Kafka Kuru | 卡芙卡转圈圈 | カフカクルへ
 [Home Page | 主页 | ホーム ページ (Cloudflare)](https://kafka-kuru.pages.dev)
