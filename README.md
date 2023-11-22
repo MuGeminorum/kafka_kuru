@@ -9,7 +9,7 @@ Please wait for a while until the kuru button is ready.
 [![Deploy static content to Pages](https://github.com/MuGeminorum/kafka_kuru/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/MuGeminorum/kafka_kuru/actions/workflows/deploy.yml)
 
 # Kafka Kuru | 卡芙卡转圈圈 | カフカクルへ
-[Home Page | 主页 | ホーム ページ (Cloudflare)](https://mugeminorum.github.io/kafka_kuru)
+[Home Page | 主页 | ホーム ページ (GitHub Pages)](https://mugeminorum.github.io/kafka_kuru)
 
 Kafka GIF modified from | 卡芙卡 GIF 来源 : [BV1Fh4y197cX](https://www.bilibili.com/video/BV1Fh4y197cX) 
 
