@@ -16,29 +16,27 @@ let CACHES = {
             "audio/cn/beng_kr.mp3",
             "audio/cn/beng_en.mp3"
         ],
-        gifs: [
-            "img/kafkaa1.gif",
-            "img/kafkaa2.gif",
-            "img/kafkaa3.gif"
-        ],
         cardImage: "img/card_cn.png"
-    }
+    },
+    gifs: [
+        "img/kafkaa1.gif",
+        "img/kafkaa2.gif",
+        "img/kafkaa3.gif"
+    ]
 };
 
 (() => {
     const $ = mdui.$;
     let progress = [0, 1];
-    // initialize cachedObjects variable to store cached object URLs
-    let cachedObjects = {};
     let firstSquish = true;
-    // This code tries to retrieve the saved language 'lang' from localStorage.
+    // This code tries to retrieve the saved language "lang" from localStorage.
     const current_language = "cn";
     const current_vo_language = "cn";
     // get global counter element and initialize its respective counts
-    let localCounter = document.getElementById('local-counter');
-    let localCount = localStorage.getItem('count-v2') || 0;
+    let localCounter = document.getElementById("local-counter");
+    let localCount = localStorage.getItem("count-v2") || 0;
     // initialize timer variable and add event listener to the counter button element
-    let counterButton = document.getElementById('counter-button');
+    let counterButton = document.getElementById("counter-button");
     // This function retrieves localized dynamic text based on a given language code, 
     // and randomly replaces an element with one of the translations. 
     function refreshDynamicTexts() {
@@ -73,9 +71,9 @@ let CACHES = {
         return CACHES[current_vo_language].audioList;
     }
 
-    async function convertMp3FilesToBase64(dict) {
+    async function cacheFilesToBase64(dict) {
         const promises = [];
-        let lang = 'cn';
+        let lang = "cn";
         if (dict.hasOwnProperty(lang)) {
             const audioList = dict[lang].audioList
             if (Array.isArray(audioList)) {
@@ -86,18 +84,16 @@ let CACHES = {
                     }
                 }
             }
-
-            const gifList = dict[lang].gifs;
+            const gifList = dict["gifs"];
             if (Array.isArray(gifList)) {
                 for (let i = 0; i < gifList.length; i++) {
                     const url = gifList[i];
                     if (typeof url === "string" && url.endsWith(".gif")) {
-                        promises.push(loadAndEncode(url).then(result => dict[lang].gifs[i] = result));
+                        promises.push(loadAndEncode(url).then(result => dict["gifs"][i] = result));
                     }
                 }
             }
-
-            dict[lang].texts['counter-button'] = ["转圈圈~", "嘣！"];
+            dict[lang].texts["counter-button"] = ["转圈圈~", "嘣！"];
         }
         progress[1] = promises.length;
         await Promise.all(promises);
@@ -105,10 +101,10 @@ let CACHES = {
     }
 
     function addBtnEvent() {
-        counterButton.addEventListener('click', (e) => {
+        counterButton.addEventListener("click", (e) => {
             localCount++;
-            localCounter.textContent = localCount.toLocaleString('en-US');
-            localStorage.setItem('count-v2', localCount);
+            localCounter.textContent = localCount.toLocaleString("en-US");
+            localStorage.setItem("count-v2", localCount);
             triggerRipple(e);
             playKuru();
             animateKafka();
@@ -147,9 +143,8 @@ let CACHES = {
 
     function animateKafka() {
         let id = null;
-        const random = Math.floor(Math.random() * 3);
         const elem = document.createElement("img");
-        elem.src = CACHES["cn"].gifs[random];
+        elem.src = CACHES["gifs"][Math.floor(Math.random() * 3)];
         elem.style.position = "absolute";
         elem.style.right = "-500px";
         elem.style.top = counterButton.getClientRects()[0].bottom + scrollY - 430 + "px"
@@ -164,7 +159,7 @@ let CACHES = {
                 elem.remove()
             } else {
                 pos += 20;
-                elem.style.right = pos + 'px';
+                elem.style.right = pos + "px";
             }
         }, 12);
     };
@@ -218,17 +213,17 @@ let CACHES = {
 
     window.onload = function () {
         // display counter
-        localCounter.textContent = localCount.toLocaleString('en-US');
+        localCounter.textContent = localCount.toLocaleString("en-US");
         // the function multiLangMutation is called initially when the page loads.
         multiLangMutation();
         // Calling method
-        convertMp3FilesToBase64(CACHES).catch(error => {
+        cacheFilesToBase64(CACHES).catch(error => {
             console.error(error);
         }).finally(() => {
             refreshDynamicTexts();
             addBtnEvent();
-            counterButton.removeAttribute('disabled');
-            counterButton.innerText = '嘣！';
+            counterButton.removeAttribute("disabled");
+            counterButton.innerText = "嘣！";
         });
         $("#show-options-opt").on("click", function () {
             window.open("https://github.com/duiqt/herta_kuru", "_blank");
