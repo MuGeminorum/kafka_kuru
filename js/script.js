@@ -26,18 +26,14 @@ let LANGUAGES = {
     // initialize cachedObjects variable to store cached object URLs
     let cachedObjects = {};
     let firstSquish = true;
-
     // This code tries to retrieve the saved language 'lang' from localStorage.
     const current_language = "cn";
     const current_vo_language = "cn";
-
     // get global counter element and initialize its respective counts
     let localCounter = document.getElementById('local-counter');
     let localCount = localStorage.getItem('count-v2') || 0;
-
     // initialize timer variable and add event listener to the counter button element
     let counterButton = document.getElementById('counter-button');
-
     // This function retrieves localized dynamic text based on a given language code, 
     // and randomly replaces an element with one of the translations. 
     function refreshDynamicTexts() {
@@ -163,7 +159,6 @@ let LANGUAGES = {
         elem.style.top = counterButton.getClientRects()[0].bottom + scrollY - 430 + "px"
         elem.style.zIndex = "-10";
         document.body.appendChild(elem);
-
         let pos = -500;
         const limit = window.innerWidth + 500;
         clearInterval(id);
@@ -181,17 +176,12 @@ let LANGUAGES = {
     // This function creates ripples on a button click and removes it after 300ms.
     function triggerRipple(e) {
         let ripple = document.createElement("span");
-
         ripple.classList.add("ripple");
-
         counterButton.appendChild(ripple);
-
         let x = e.clientX - e.target.offsetLeft;
         let y = e.clientY - e.target.offsetTop;
-
         ripple.style.left = `${x}px`;
         ripple.style.top = `${y}px`;
-
         setTimeout(() => {
             ripple.remove();
         }, 300);
@@ -233,10 +223,8 @@ let LANGUAGES = {
     window.onload = function () {
         // display counter
         localCounter.textContent = localCount.toLocaleString('en-US');
-
         // the function multiLangMutation is called initially when the page loads.
         multiLangMutation();
-
         // Calling method
         convertMp3FilesToBase64(LANGUAGES).catch(error => {
             console.error(error);
@@ -246,20 +234,16 @@ let LANGUAGES = {
             counterButton.removeAttribute('disabled');
             counterButton.innerText = '嘣！';
         });
-
         // try caching the kafkaa*.gif images by calling the tryCacheUrl function
         cacheStaticObj("img/kafkaa1.gif");
         cacheStaticObj("img/kafkaa2.gif");
         cacheStaticObj("img/kafkaa3.gif");
-
         $("#show-options-opt").on("click", function () {
             window.open("https://github.com/duiqt/herta_kuru", "_blank");
         });
-
         $("#show-gif-src").on("click", function () {
             window.open("https://www.bilibili.com/video/BV1Fh4y197cX", "_blank");
         });
-
         $("#show-audio-src").on("click", function () {
             window.open("https://www.bilibili.com/video/BV1PP411977N", "_blank");
         });
