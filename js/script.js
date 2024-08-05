@@ -89,6 +89,10 @@ let LANGUAGES = {
     };
 
     async function convertMp3FilesToBase64(dict) {
+        // try caching the kafkaa*.gif images by calling the tryCacheUrl function
+        cacheStaticObj("img/kafkaa1.gif");
+        cacheStaticObj("img/kafkaa2.gif");
+        cacheStaticObj("img/kafkaa3.gif");
         const promises = [];
         let lang = 'cn';
         if (dict.hasOwnProperty(lang)) {
@@ -234,10 +238,6 @@ let LANGUAGES = {
             counterButton.removeAttribute('disabled');
             counterButton.innerText = '嘣！';
         });
-        // try caching the kafkaa*.gif images by calling the tryCacheUrl function
-        cacheStaticObj("img/kafkaa1.gif");
-        cacheStaticObj("img/kafkaa2.gif");
-        cacheStaticObj("img/kafkaa3.gif");
         $("#show-options-opt").on("click", function () {
             window.open("https://github.com/duiqt/herta_kuru", "_blank");
         });
