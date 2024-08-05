@@ -249,7 +249,8 @@ let LANGUAGES = {
 
         // try caching the kafkaa*.gif images by calling the tryCacheUrl function
         cacheStaticObj("img/kafkaa1.gif");
-        // cacheStaticObj("img/kafkaa2.gif");
+        cacheStaticObj("img/kafkaa2.gif");
+        cacheStaticObj("img/kafkaa3.gif");
 
         $("#show-options-opt").on("click", function () {
             window.open("https://github.com/duiqt/herta_kuru", "_blank");
