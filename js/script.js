@@ -1,12 +1,6 @@
-let LANGUAGES = {
+let CACHES = {
     "_": { defaultLanguage: "cn", defaultVOLanguage: "cn" },
     "cn": {
-        audioList: [
-            "audio/cn/beng_cn.mp3",
-            "audio/cn/beng_jp.mp3",
-            "audio/cn/beng_kr.mp3",
-            "audio/cn/beng_en.mp3"
-        ],
         texts: {
             "page-title": "卡芙卡转圈圈",
             "doc-title": "嘣~",
@@ -16,6 +10,17 @@ let LANGUAGES = {
             "counter-button": ["加载中...", "请稍候..."],
             "repository-desc": "GitHub 仓库"
         },
+        audioList: [
+            "audio/cn/beng_cn.mp3",
+            "audio/cn/beng_jp.mp3",
+            "audio/cn/beng_kr.mp3",
+            "audio/cn/beng_en.mp3"
+        ],
+        gifs: [
+            "img/kafkaa1.gif",
+            "img/kafkaa2.gif",
+            "img/kafkaa3.gif"
+        ],
         cardImage: "img/card_cn.png"
     }
 };
@@ -38,7 +43,7 @@ let LANGUAGES = {
     // and randomly replaces an element with one of the translations. 
     function refreshDynamicTexts() {
         if (progress[0] !== progress[1]) return;
-        let curLang = LANGUAGES[current_language];
+        let curLang = CACHES[current_language];
         let localTexts = curLang.texts;
         Object.entries(localTexts).forEach(([textId, value]) => {
             if (value instanceof Array && document.getElementById(textId) != undefined) {
@@ -49,7 +54,7 @@ let LANGUAGES = {
 
     // function that updates all the relevant text elements with the translations in the chosen language.
     function multiLangMutation() {
-        let curLang = LANGUAGES[current_language];
+        let curLang = CACHES[current_language];
         let localTexts = curLang.texts;
         Object.entries(localTexts).forEach(([textId, value]) => {
             if (!(value instanceof Array))
@@ -65,38 +70,14 @@ let LANGUAGES = {
 
     // function that returns the list of audio files for the selected language
     function getLocalAudioList() {
-        return LANGUAGES[current_vo_language].audioList;
+        return CACHES[current_vo_language].audioList;
     }
 
-    // function to try caching an object URL and return it if present in cache or else fetch it and cache it
-    function cacheStaticObj(origUrl) {
-        if (cachedObjects[origUrl]) {
-            return cachedObjects[origUrl];
-        } else {
-            setTimeout(() => {
-                fetch(origUrl)
-                    .then((response) => response.blob())
-                    .then((blob) => {
-                        const blobUrl = URL.createObjectURL(blob);
-                        cachedObjects[origUrl] = blobUrl;
-                    })
-                    .catch((error) => {
-                        console.error(`Error caching object from ${origUrl}: ${error}`);
-                    });
-            }, 1);
-            return origUrl;
-        }
-    };
-
     async function convertMp3FilesToBase64(dict) {
-        // try caching the kafkaa*.gif images by calling the tryCacheUrl function
-        cacheStaticObj("img/kafkaa1.gif");
-        cacheStaticObj("img/kafkaa2.gif");
-        cacheStaticObj("img/kafkaa3.gif");
         const promises = [];
         let lang = 'cn';
         if (dict.hasOwnProperty(lang)) {
-            const audioList = dict[lang].audioList;
+            const audioList = dict[lang].audioList
             if (Array.isArray(audioList)) {
                 for (let i = 0; i < audioList.length; i++) {
                     const url = audioList[i];
@@ -105,6 +86,17 @@ let LANGUAGES = {
                     }
                 }
             }
+
+            const gifList = dict[lang].gifs;
+            if (Array.isArray(gifList)) {
+                for (let i = 0; i < gifList.length; i++) {
+                    const url = gifList[i];
+                    if (typeof url === "string" && url.endsWith(".gif")) {
+                        promises.push(loadAndEncode(url).then(result => dict[lang].gifs[i] = result));
+                    }
+                }
+            }
+
             dict[lang].texts['counter-button'] = ["转圈圈~", "嘣！"];
         }
         progress[1] = promises.length;
@@ -155,9 +147,9 @@ let LANGUAGES = {
 
     function animateKafka() {
         let id = null;
-        const random = Math.floor(Math.random() * 3) + 1;
+        const random = Math.floor(Math.random() * 3);
         const elem = document.createElement("img");
-        elem.src = cacheStaticObj(`img/kafkaa${random}.gif`);
+        elem.src = CACHES["cn"].gifs[random];
         elem.style.position = "absolute";
         elem.style.right = "-500px";
         elem.style.top = counterButton.getClientRects()[0].bottom + scrollY - 430 + "px"
@@ -230,7 +222,7 @@ let LANGUAGES = {
         // the function multiLangMutation is called initially when the page loads.
         multiLangMutation();
         // Calling method
-        convertMp3FilesToBase64(LANGUAGES).catch(error => {
+        convertMp3FilesToBase64(CACHES).catch(error => {
             console.error(error);
         }).finally(() => {
             refreshDynamicTexts();
