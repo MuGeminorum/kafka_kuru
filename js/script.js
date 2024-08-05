@@ -64,7 +64,7 @@ let LANGUAGES = {
         });
         refreshDynamicTexts();
         // sets the image of element with id "herta-card" to the translated version in the selected language.
-        document.getElementById("herta-card").src = "static/" + curLang.cardImage;
+        document.getElementById("herta-card").src = curLang.cardImage;
     };
 
     // function that returns the list of audio files for the selected language
@@ -78,7 +78,7 @@ let LANGUAGES = {
             return cachedObjects[origUrl];
         } else {
             setTimeout(() => {
-                fetch("static/" + origUrl)
+                fetch(origUrl)
                     .then((response) => response.blob())
                     .then((blob) => {
                         const blobUrl = URL.createObjectURL(blob);
@@ -101,7 +101,7 @@ let LANGUAGES = {
                 for (let i = 0; i < audioList.length; i++) {
                     const url = audioList[i];
                     if (typeof url === "string" && url.endsWith(".mp3")) {
-                        promises.push(loadAndEncode("static/" + url).then(result => dict[lang].audioList[i] = result));
+                        promises.push(loadAndEncode(url).then(result => dict[lang].audioList[i] = result));
                     }
                 }
             }
