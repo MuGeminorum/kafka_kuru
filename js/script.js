@@ -89,7 +89,7 @@ let CACHES = {
                 for (let i = 0; i < gifList.length; i++) {
                     const url = gifList[i];
                     if (typeof url === "string" && url.endsWith(".gif")) {
-                        promises.push(loadAndEncode(url).then(result => dict["gifs"][i] = result));
+                        promises.push(loadAndEncode(url, "image/gif").then(result => dict["gifs"][i] = result));
                     }
                 }
             }
@@ -183,7 +183,7 @@ let CACHES = {
         counterButton.innerText = `${((progress[0] / progress[1]) * 100) | 0}%`
     }
 
-    function loadAndEncode(url) {
+    function loadAndEncode(url, datype = "audio/mpeg") {
         return new Promise((resolve, reject) => {
             const xhr = new XMLHttpRequest();
             xhr.open("GET", url, true);
@@ -192,13 +192,10 @@ let CACHES = {
                 upadteProgress();
                 if (xhr.status === 200) {
                     const buffer = xhr.response;
-                    const blob = new Blob([buffer], { type: "audio/mpeg" });
+                    const blob = new Blob([buffer], { type: datype });
                     const reader = new FileReader();
                     reader.readAsDataURL(blob);
-                    reader.onloadend = function () {
-                        const base64data = reader.result;
-                        resolve(base64data);
-                    }
+                    reader.onloadend = function () { resolve(reader.result); }
                 } else {
                     reject(xhr.statusText);
                 }
